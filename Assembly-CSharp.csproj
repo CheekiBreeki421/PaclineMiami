@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\CornerCheck.cs" />
     <Compile Include="Assets\Scripts\LevelGenerator.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/desktop-pc/Pacline Miami/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

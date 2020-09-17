@@ -176,58 +176,116 @@ public class LevelGenerator : MonoBehaviour
                         Instantiate(nothing);
                         break;
                     case 1:
-                        Instantiate(outCorner, new Vector2(transform.position.x, transform.position.y), transform.rotation);
-                        switch (toggleCorner)
+                        switch (j)
                         {
-                            case true:
-                                transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z - 90);
-                                toggleCorner = false;
-                                break;
-                            case false:
-                                transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z + 90);
+                            case 12:
                                 toggleCorner = true;
                                 break;
                         }
+                        switch (toggleCorner)
+                        {
+                            case true:
+                                toggleCorner = false;
+                                break;
+                            case false:
+                                toggleCorner = true;
+                                break;
+                        }
+                        
+                        Instantiate(outCorner, new Vector2(transform.position.x, transform.position.y), transform.rotation);
                         break;
                     case 2:
+                        
+                        switch (toggleCorner)
+                          
+                        {
+                            case true:
+                                transform.rotation = Quaternion.Euler(0, 0, 90);
+                                break;
+                            case false:
+                                transform.rotation = Quaternion.Euler(0, 0, 0);
+                                break;
+                        }
+                        switch (i)
+                        {
+                            case 0:
+                                transform.rotation = Quaternion.Euler(0, 0, 90);
+                                break;
+                            case 6:
+                                transform.rotation = Quaternion.Euler(0, 0, 0);
+                                break;
+                            case 12:
+                                transform.rotation = Quaternion.Euler(0, 0, 0);
+                                break;
+                        }
                         Instantiate(outWall, new Vector2(transform.position.x, transform.position.y), transform.rotation);
                         break;
                     case 3:
-                        Instantiate(inCorner, new Vector2(transform.position.x, transform.position.y), transform.rotation);
+                        switch (j)
+                        {
+                            case 0:
+                                
+                                toggleCorner = true;
+                                switch (i)
+                                {
+                                    case 7:
+                                        toggleCorner = false;
+                                        break;
+                                }
+                                break;
+
+                        }
                         switch (toggleCorner)
                         {
                             case true:
-                                transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z - 90);
                                 toggleCorner = false;
                                 break;
                             case false:
-                                transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z + 90);
                                 toggleCorner = true;
                                 break;
                         }
+                        Instantiate(inCorner, new Vector2(transform.position.x, transform.position.y), transform.rotation);
                         break;
                     case 4:
+                        switch (toggleCorner)
+                        {
+                            case true:
+                                transform.rotation = Quaternion.Euler(0, 0, 90);
+                                break;
+                            case false:
+                                transform.rotation = Quaternion.Euler(0, 0, 0);
+                                break;
+                        }
+                        switch (i)
+                        {
+                            case 13:
+                                transform.rotation = Quaternion.Euler(0, 0, 0);
+                                break;
+                            case 12:
+                                transform.rotation = Quaternion.Euler(0, 0, 90);
+                                if (toggleCorner == true) 
+                                {
+                                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                                }
+                                break;
+                            case 11:
+                                transform.rotation = Quaternion.Euler(0, 0, 0);
+                                break;
+
+                            case 6:
+                                transform.rotation = Quaternion.Euler(0, 0, 90);
+                                break;
+                        }
                         Instantiate(inWall, new Vector2(transform.position.x, transform.position.y), transform.rotation);
                         break;
                     case 5:
-                        Instantiate(smallPellet, new Vector2(transform.position.x, transform.position.y), transform.rotation);
+                        Instantiate(smallPellet, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                         break;
                     case 6:
-                        Instantiate(bigPellet, new Vector2(transform.position.x, transform.position.y), transform.rotation);
+                        Instantiate(bigPellet, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                         break;
                     case 7:
-                        Instantiate(tPose, new Vector2(transform.position.x, transform.position.y), transform.rotation);
-                        switch (toggleCorner)
-                        {
-                            case true:
-                                transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z - 90);
-                                toggleCorner = false;
-                                break;
-                            case false:
-                                transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z + 90);
-                                toggleCorner = true;
-                                break;
-                        }
+                        Instantiate(tPose, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                         break;
                 }
                 transform.position = new Vector2(transform.position.x - 1, transform.position.y);
@@ -236,7 +294,6 @@ public class LevelGenerator : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, 0);
             toggleCorner = false;
         }
-
 
     }
 
@@ -254,58 +311,78 @@ public class LevelGenerator : MonoBehaviour
                         Instantiate(nothing);
                         break;
                     case 1:
-                        Instantiate(outCorner, new Vector2(transform.position.x, transform.position.y), transform.rotation);
                         switch (toggleCorner)
                         {
                             case true:
-                                transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z - 90);
                                 toggleCorner = false;
                                 break;
                             case false:
-                                transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z + 90);
                                 toggleCorner = true;
                                 break;
                         }
+                        Instantiate(outCorner, new Vector2(transform.position.x, transform.position.y), transform.rotation);
                         break;
                     case 2:
+
+                        switch (toggleCorner)
+                        {
+                            case true:
+                                transform.rotation = Quaternion.Euler(0, 0, 90);
+                                break;
+                            case false:
+                                transform.rotation = Quaternion.Euler(0, 0, 0);
+                                break;
+                        }
+                        switch (i)
+                        {
+                            case 1:
+                                transform.rotation = Quaternion.Euler(0, 0, 90);
+                                if (toggleCorner == true)
+                                {
+                                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                                }
+                                break;
+                        }
                         Instantiate(outWall, new Vector2(transform.position.x, transform.position.y), transform.rotation);
                         break;
                     case 3:
-                        Instantiate(inCorner, new Vector2(transform.position.x, transform.position.y), transform.rotation);
                         switch (toggleCorner)
                         {
                             case true:
-                                transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z - 90);
                                 toggleCorner = false;
                                 break;
                             case false:
-                                transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z + 90);
                                 toggleCorner = true;
                                 break;
                         }
+                        Instantiate(inCorner, new Vector2(transform.position.x, transform.position.y), transform.rotation);
                         break;
                     case 4:
+                        switch (toggleCorner)
+                        {
+                            case true:
+                                transform.rotation = Quaternion.Euler(0, 0, 90);
+                                break;
+                            case false:
+                                transform.rotation = Quaternion.Euler(0, 0, 0);
+                                break;
+                        }
+                        switch (i)
+                        {
+                            case 13:
+                                transform.rotation = Quaternion.Euler(0, 0, 0);
+                                break;
+                        }
                         Instantiate(inWall, new Vector2(transform.position.x, transform.position.y), transform.rotation);
                         break;
                     case 5:
-                        Instantiate(smallPellet, new Vector2(transform.position.x, transform.position.y), transform.rotation);
+                        Instantiate(smallPellet, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                         break;
                     case 6:
-                        Instantiate(bigPellet, new Vector2(transform.position.x, transform.position.y), transform.rotation);
+                        Instantiate(bigPellet, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                         break;
                     case 7:
-                        Instantiate(tPose, new Vector2(transform.position.x, transform.position.y), transform.rotation);
-                        switch (toggleCorner)
-                        {
-                            case true:
-                                transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z - 90);
-                                toggleCorner = false;
-                                break;
-                            case false:
-                                transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z + 90);
-                                toggleCorner = true;
-                                break;
-                        }
+                        Instantiate(tPose, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                         break;
                 }
                 transform.position = new Vector2(transform.position.x - 1, transform.position.y);
@@ -314,8 +391,6 @@ public class LevelGenerator : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, 0);
             toggleCorner = false;
         }
-
-
     }
 
     void ConstructSectorMirrorXY()
